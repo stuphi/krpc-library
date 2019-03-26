@@ -34,7 +34,7 @@ class MissionParameters(object):
     def __init__(self,
                  max_auto_stage=0,
                  orbit_alt=80000,
-                 grav_turn_finish=55000,
+                 grav_turn_finish=56000,  # 55000
                  inclination=0,
                  force_roll=True,
                  roll=90,
@@ -57,7 +57,7 @@ class Telemetry(object):
         self.time_to_apo = vessel.orbit.time_to_apoapsis
         self.time_to_peri = vessel.orbit.time_to_periapsis
         self.velocity = vessel.orbit.speed
-        self.inclination = math.radians(vessel.orbit.inclination)
+        self.inclination = math.degrees(vessel.orbit.inclination)
         self.altitude = flight.mean_altitude
         self.vertical_speed = flight.vertical_speed
         self.lat = flight.latitude
@@ -271,7 +271,7 @@ def display_telemetry(t):
 
     col2 = ('Periapsis:   {periapsis: 8,.0f}',
             'Time to peri:   {time_to_peri:5,.0f}',
-            'Inclination:      {inclination: 3.0f}\n',
+            'Inclination:    {inclination:5.1f}\n',
             'Vertical speed: {vertical_speed: 5,.0f}',
             'Longitude:      {lon:5.1f}\n',
             'G-force:         {g:4.1f}')
